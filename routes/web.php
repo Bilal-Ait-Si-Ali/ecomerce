@@ -14,6 +14,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /** Produits */
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::resource('admin/products', ProductController::class)->except(['show'])->middleware(['auth', 'is_admin']);
+
 
 /** Panier */
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -32,4 +34,5 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
     Route::resource('/products', ProductController::class)->except(['show']);
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
     Route::patch('/orders/{id}/status', [AdminController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+     Route::resource('products', ProductController::class)->except(['show']);
 });
