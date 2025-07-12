@@ -1,0 +1,33 @@
+{
+    "name": "ubuntu",
+   // "dockerComposeFile": "docker-compose.yml",
+    "image": "dev",
+    "dockerFile": "Dockerfile",
+
+    "runArgs": ["--name", "devcontainer", "--network=dev-network"],
+    "postAttachCommand": {
+
+    },
+
+    "initializeCommand": "docker-compose up -d"
+
+
+
+  /*
+  "appPort": [3000],
+  "react": "cd frontend && npm start",
+"laravel": "cd api && php artisan serve"
+
+    ,"runArgs": ["-u", "node"],
+    "settings": {
+        "workbench.colorTheme": "Cobalt2",
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "npm install",
+
+    "extensions": [
+		"esbenp.prettier-vscode",
+		"wesbos.theme-cobalt2",
+		"rvest.vs-code-prettier-eslint"
+	]*/
+}
