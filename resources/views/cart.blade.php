@@ -27,7 +27,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Produit 1 - MacBook Pro -->
+
+                         @foreach ($cart as $item)
+
+
+                    <p>{{ $item['name'] }} (x{{ $item['quantity'] }})</p>
+                
+
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -35,23 +41,23 @@
                                             <i class="bi bi-laptop text-muted"></i>
                                         </div>
                                         <div>
-                                            <h6 class="mb-0">MacBook Pro 16"</h6>
-                                            <small class="text-muted">Puce M3 Pro, 18GB RAM</small>
+                                            <h6 class="mb-0">{{ $item['name'] }}</h6>
+                                          <!--  <small class="text-muted">Puce M3 Pro, 18GB RAM</small> --> 
                                         </div>
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <span class="fw-bold">1999.99€</span>
+                                    <span class="fw-bold">{{ $item['price'] }} MAD</span>
                                 </td>
                                 <td class="align-middle">
                                     <div class="input-group" style="width: 120px;">
                                         <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(1, -1)">-</button>
-                                        <input type="number" class="form-control form-control-sm text-center" value="1" min="1" max="10" id="qty-1">
+                                        <input type="number" class="form-control form-control-sm text-center" value="{{ $item['quantity'] }}" min="1" max="50" id="qty-1">
                                         <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(1, 1)">+</button>
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <span class="fw-bold text-primary" id="total-1">1999.99€</span>
+                                    <span class="fw-bold text-primary" id="total-1">{{ $item['price'] }} MAD</span>
                                 </td>
                                 <td class="align-middle">
                                     <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(1)">
@@ -60,71 +66,11 @@
                                 </td>
                             </tr>
 
-                            <!-- Produit 2 - iPhone 15 -->
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="me-3 bg-light d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                            <i class="bi bi-phone text-muted"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">iPhone 15</h6>
-                                            <small class="text-muted">128GB, Bleu</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <span class="fw-bold">999.99€</span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="input-group" style="width: 120px;">
-                                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(2, -1)">-</button>
-                                        <input type="number" class="form-control form-control-sm text-center" value="2" min="1" max="10" id="qty-2">
-                                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(2, 1)">+</button>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <span class="fw-bold text-primary" id="total-2">1999.98€</span>
-                                </td>
-                                <td class="align-middle">
-                                    <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(2)">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
+                                                        
 
-                            <!-- Produit 3 - AirPods Pro -->
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="me-3 bg-light d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                            <i class="bi bi-headphones text-muted"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="mb-0">AirPods Pro</h6>
-                                            <small class="text-muted">2ème génération</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <span class="fw-bold">299.99€</span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="input-group" style="width: 120px;">
-                                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(3, -1)">-</button>
-                                        <input type="number" class="form-control form-control-sm text-center" value="1" min="1" max="10" id="qty-3">
-                                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(3, 1)">+</button>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <span class="fw-bold text-primary" id="total-3">299.99€</span>
-                                </td>
-                                <td class="align-middle">
-                                    <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(3)">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -162,6 +108,7 @@
                 <h5 class="mb-0">Résumé de la commande</h5>
             </div>
             <div class="card-body">
+
                 <div class="d-flex justify-content-between mb-2">
                     <span>Sous-total (4 articles):</span>
                     <span id="subtotal">4299.96€</span>

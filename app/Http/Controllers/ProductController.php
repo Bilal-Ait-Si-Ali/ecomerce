@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+      /**
+     * Affiche la page de détail pour un produit.
+     */
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        $products = Product::latest()->limit(3)->get();
+        return view('product', compact('product','products'));
+    }
     /**
      * Afficher la liste des produits (admin).
      */
@@ -94,7 +104,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('products.index')
-            ->with('success', 'Produit supprimé avec succès.');
+        return redirect()->route('products.index') ->with('success', 'Produit supprimé avec succès.');
     }
 }

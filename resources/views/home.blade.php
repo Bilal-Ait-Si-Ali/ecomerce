@@ -19,122 +19,44 @@
         <hr class="w-25 mx-auto">
     </div>
 
-    <!-- Produit 1 - MacBook Pro -->
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                <i class="bi bi-laptop text-muted" style="font-size: 3rem;"></i>
-            </div>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">MacBook Pro 16"</h5>
-                <p class="card-text text-muted flex-grow-1">Ordinateur portable puissant avec puce M3 Pro pour les professionnels</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="h5 text-primary mb-0">1999.99€</span>
-                    <small class="text-success">
-                        <i class="bi bi-check-circle"></i> En stock
-                    </small>
+
+    @foreach ($products as $product)
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 100%; max-width: 100%;">
                 </div>
-            </div>
-            <div class="card-footer bg-transparent">
-                <div class="d-grid gap-2">
-                    <a href="/product/1" class="btn btn-outline-primary">
-                        <i class="bi bi-eye"></i> Voir détail
-                    </a>
-                    <button class="btn btn-primary w-100" onclick="addToCart(1)">
-                        <i class="bi bi-cart-plus"></i> Ajouter au panier
-                    </button>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <p class="card-text text-muted flex-grow-1">{{ $product->description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 text-primary mb-0">{{ $product->price }} Mad</span>
+                        <small class="text-success">
+                            <i class="bi bi-check-circle"></i> En stock
+                        </small>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-grid gap-2">
+                        <a href="/product/1" class="btn btn-outline-primary">
+                            <i class="bi bi-eye"></i> Voir détail
+                        </a>
+                        <button class="btn btn-primary w-100" onclick="addToCartFromProduct({{ $product->id }})">
+                            <i class="bi bi-cart-plus"></i> Ajouter au panier
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    @endforeach
+
+ <!-- Pagination Links -->
+    <div class="d-flex justify-content-center mt-4">
+       
+        {{ $products->links() }}
     </div>
 
-    <!-- Produit 2 - iPhone 15 -->
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                <i class="bi bi-phone text-muted" style="font-size: 3rem;"></i>
-            </div>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">iPhone 15</h5>
-                <p class="card-text text-muted flex-grow-1">Le dernier smartphone d'Apple avec toutes les innovations technologiques</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="h5 text-primary mb-0">999.99€</span>
-                    <small class="text-success">
-                        <i class="bi bi-check-circle"></i> En stock
-                    </small>
-                </div>
-            </div>
-            <div class="card-footer bg-transparent">
-                <div class="d-grid gap-2">
-                    <a href="/product/2" class="btn btn-outline-primary">
-                        <i class="bi bi-eye"></i> Voir détail
-                    </a>
-                    <button class="btn btn-primary w-100" onclick="addToCart(2)">
-                        <i class="bi bi-cart-plus"></i> Ajouter au panier
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Produit 3 - AirPods Pro -->
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                <i class="bi bi-headphones text-muted" style="font-size: 3rem;"></i>
-            </div>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">AirPods Pro</h5>
-                <p class="card-text text-muted flex-grow-1">Écouteurs sans fil avec réduction de bruit active et audio spatial</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="h5 text-primary mb-0">299.99€</span>
-                    <small class="text-success">
-                        <i class="bi bi-check-circle"></i> En stock
-                    </small>
-                </div>
-            </div>
-            <div class="card-footer bg-transparent">
-                <div class="d-grid gap-2">
-                    <a href="/product/3" class="btn btn-outline-primary">
-                        <i class="bi bi-eye"></i> Voir détail
-                    </a>
-                    <button class="btn btn-primary w-100" onclick="addToCart(3)">
-                        <i class="bi bi-cart-plus"></i> Ajouter au panier
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Produit 4 - Apple Watch -->
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                <i class="bi bi-smartwatch text-muted" style="font-size: 3rem;"></i>
-            </div>
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Apple Watch Series 9</h5>
-                <p class="card-text text-muted flex-grow-1">Montre connectée avec suivi de santé et fitness avancé</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="h5 text-primary mb-0">449.99€</span>
-                    <small class="text-danger">
-                        <i class="bi bi-x-circle"></i> Rupture
-                    </small>
-                </div>
-            </div>
-            <div class="card-footer bg-transparent">
-                <div class="d-grid gap-2">
-                    <a href="/product/4" class="btn btn-outline-primary">
-                        <i class="bi bi-eye"></i> Voir détail
-                    </a>
-                    <button class="btn btn-secondary w-100" disabled>
-                        <i class="bi bi-x-circle"></i> Indisponible
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Section avantages -->
 <div class="row mt-5 py-5 bg-light rounded">
@@ -160,14 +82,43 @@
 @endsection
 
 @section('scripts')
+
 <script>
-function addToCart(productId) {
-    // Simulation d'ajout au panier
-    const alert = document.querySelector('.alert-success');
-    alert.style.display = 'block';
-    setTimeout(() => {
-        alert.style.display = 'none';
-    }, 3000);
+async function addToCartFromProduct(productId) {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    try {
+        const response = await fetch('/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: 1
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            const toastBody = document.getElementById('cart-toast-body');
+            toastBody.textContent = `${1} ${data.product_name} ajouté(s) au panier !`;
+
+            const toastEl = document.getElementById('cart-toast');
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+            document.getElementById('cart-count').textContent = data.cart_count;
+        } else {
+            alert('Erreur: ' + (data.message || 'Une erreur est survenue.'));
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Erreur réseau.');
+    }
 }
+
 </script>
+
 @endsection

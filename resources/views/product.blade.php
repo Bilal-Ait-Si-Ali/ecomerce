@@ -7,7 +7,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Accueil</a></li>
-                <li class="breadcrumb-item active">MacBook Pro 16"</li>
+                <li class="breadcrumb-item active">{{ $product->name }}</li>
             </ol>
         </nav>
     </div>
@@ -16,7 +16,7 @@
     <div class="col-md-6 mb-4">
         <div class="card">
             <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
-                <i class="bi bi-laptop text-muted" style="font-size: 8rem;"></i>
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 100%; max-width: 100%;">
             </div>
         </div>
     </div>
@@ -25,34 +25,31 @@
     <div class="col-md-6">
         <div class="card h-100">
             <div class="card-body">
-                <h1 class="card-title">MacBook Pro 16"</h1>
+                <h1 class="card-title">{{ $product->name }}</h1>
                 
                 <!-- Prix -->
                 <div class="mb-3">
-                    <span class="h2 text-primary">1999.99€</span>
-                    <small class="text-muted text-decoration-line-through ms-2">2199.99€</small>
+                    <span class="h2 text-primary">{{ $product->price }} Mad</span>
+                <!--   <small class="text-muted text-decoration-line-through ms-2">{{ $product->price }} Mad</small> -->
                 </div>
 
                 <!-- Stock -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <span class="badge bg-success fs-6">
                         <i class="bi bi-check-circle"></i> En stock (5 disponibles)
                     </span>
-                </div>
+                </div> -->
 
                 <!-- Description -->
                 <div class="mb-4">
                     <h5>Description</h5>
                     <p class="text-muted">
-                        Le MacBook Pro 16 pouces redéfinit l'ordinateur portable professionnel. 
-                        Avec sa puce M3 Pro révolutionnaire, son écran Liquid Retina XDR époustouflant 
-                        et son autonomie exceptionnelle, il offre des performances inégalées pour 
-                        les créatifs et les professionnels les plus exigeants.
+                        {{ $product->description }}
                     </p>
                 </div>
 
                 <!-- Caractéristiques -->
-                <div class="mb-4">
+              <!--   <div class="mb-4">
                     <h5>Caractéristiques principales</h5>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-check text-success"></i> Puce M3 Pro 12 cœurs</li>
@@ -62,12 +59,14 @@
                         <li><i class="bi bi-check text-success"></i> Autonomie jusqu'à 22 heures</li>
                         <li><i class="bi bi-check text-success"></i> Ports Thunderbolt 4</li>
                     </ul>
-                </div>
+                </div>-->
 
                 <!-- Actions -->
                 <div class="row g-3 mb-4">
                     <div class="col-4">
                         <label for="quantity" class="form-label">Quantité</label>
+
+                      <!--  <input class="form-select"  type="number" id="quantity" value="1" min="1">-->
                         <select class="form-select" id="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -77,13 +76,14 @@
                         </select>
                     </div>
                     <div class="col-8 d-flex align-items-end">
-                        <button type="button" class="btn btn-primary btn-lg w-100" onclick="addToCartFromProduct()">
+                        <button type="button" class="btn btn-primary btn-lg w-100" onclick="addToCartFromProduct({{ $product->id }})">
                             <i class="bi bi-cart-plus"></i> Ajouter au panier
                         </button>
                     </div>
                 </div>
 
                 <!-- Boutons supplémentaires -->
+                 <!--
                 <div class="d-grid gap-2 d-md-flex mb-3">
                     <button class="btn btn-outline-danger">
                         <i class="bi bi-heart"></i> Ajouter aux favoris
@@ -92,6 +92,7 @@
                         <i class="bi bi-share"></i> Partager
                     </button>
                 </div>
+                -->
 
                 <!-- Navigation -->
                 <div class="d-grid gap-2 d-md-flex">
@@ -108,6 +109,7 @@
 </div>
 
 <!-- Informations complémentaires -->
+ <!--
 <div class="row mt-5">
     <div class="col-12">
         <div class="card">
@@ -127,7 +129,7 @@
             </div>
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
-                    <!-- Spécifications -->
+                    <-- Spécifications ->
                     <div class="tab-pane fade show active" id="specs">
                         <div class="row">
                             <div class="col-md-6">
@@ -153,7 +155,7 @@
                         </div>
                     </div>
                     
-                    <!-- Avis clients -->
+                    <-- Avis clients ->
                     <div class="tab-pane fade" id="reviews">
                         <div class="d-flex align-items-center mb-3">
                             <div class="me-3">
@@ -169,7 +171,7 @@
                             <small class="text-muted">Basé sur 127 avis</small>
                         </div>
                         
-                        <!-- Avis 1 -->
+                        <-- Avis 1 ->
                         <div class="border-bottom pb-3 mb-3">
                             <div class="d-flex justify-content-between align-items-start">
                                 <strong>Jean D.</strong>
@@ -185,7 +187,7 @@
                             <p class="mt-2 mb-0">Excellente machine, très performante pour le montage vidéo. L'écran est magnifique !</p>
                         </div>
                         
-                        <!-- Avis 2 -->
+                        <-- Avis 2 ->
                         <div class="border-bottom pb-3 mb-3">
                             <div class="d-flex justify-content-between align-items-start">
                                 <strong>Marie L.</strong>
@@ -206,54 +208,70 @@
         </div>
     </div>
 </div>
-
+-->
 <!-- Produits similaires -->
 <div class="row mt-5">
     <div class="col-12">
         <h3>Produits similaires</h3>
         <hr>
     </div>
-    
+    @foreach ($products as $prod)
     <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
             <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 150px;">
-                <i class="bi bi-laptop text-muted" style="font-size: 2rem;"></i>
+                <img src="{{ asset('storage/' . $prod->image) }}" alt="{{ $prod->name }}" class="img-fluid" style="max-height: 100%; max-width: 100%;">
             </div>
             <div class="card-body">
-                <h6 class="card-title">MacBook Air</h6>
-                <p class="text-primary fw-bold">1299.99€</p>
+                <h6 class="card-title">{{ $prod->name }}</h6>
+                <p class="text-primary fw-bold">{{ $prod->price }} Mad</p>
                 <a href="/product/5" class="btn btn-sm btn-outline-primary">Voir détail</a>
             </div>
         </div>
     </div>
-
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 150px;">
-                <i class="bi bi-tablet text-muted" style="font-size: 2rem;"></i>
-            </div>
-            <div class="card-body">
-                <h6 class="card-title">iPad Pro</h6>
-                <p class="text-primary fw-bold">1199.99€</p>
-                <a href="/product/6" class="btn btn-sm btn-outline-primary">Voir détail</a>
-            </div>
-        </div>
-    </div>
+    @endforeach
+    
 </div>
 @endsection
 
 @section('scripts')
 <script>
-function addToCartFromProduct() {
+async function addToCartFromProduct(productId) {
     const quantity = document.getElementById('quantity').value;
-    alert(`${quantity} MacBook Pro ajouté(s) au panier !`);
-    
-    // Simulation d'ajout au panier
-    const alert_el = document.querySelector('.alert-success');
-    alert_el.style.display = 'block';
-    setTimeout(() => {
-        alert_el.style.display = 'none';
-    }, 3000);
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    try {
+        const response = await fetch('/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            const toastBody = document.getElementById('cart-toast-body');
+            toastBody.textContent = `${quantity} ${data.product_name} ajouté(s) au panier !`;
+
+            const toastEl = document.getElementById('cart-toast');
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+
+            document.getElementById('cart-count').textContent = data.cart_count;
+        } else {
+            alert('Erreur: ' + (data.message || 'Une erreur est survenue.'));
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Erreur réseau.');
+    }
 }
+
 </script>
+
 @endsection

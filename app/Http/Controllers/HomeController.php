@@ -12,16 +12,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(12); // pagination facultative
+        $products = Product::latest()->paginate(4); // pagination facultative
         return view('home', compact('products'));
     }
 
-    /**
-     * Affiche la page de détail pour un produit.
-     */
-    public function show($id)
-    {
-        $product = Product::findOrFail($id);
-        return view('home.show', compact('product'));
-    }
+  
 }

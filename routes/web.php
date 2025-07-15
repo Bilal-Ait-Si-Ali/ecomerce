@@ -13,13 +13,17 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /** Produits */
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product');
+
+//Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+
 Route::resource('admin/products', ProductController::class)->except(['show'])->middleware(['auth', 'is_admin']);
 
 
 /** Panier */
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/count', [CartController::class, 'count']);
 Route::patch('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
