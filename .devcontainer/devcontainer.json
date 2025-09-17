@@ -1,15 +1,13 @@
 {
-    "name": "ubuntu",
    // "dockerComposeFile": "docker-compose.yml",
-    "image": "dev",
+    "image": "larevel_dev",
     "dockerFile": "Dockerfile",
 
-    "runArgs": ["--name", "devcontainer", "--network=dev-network"],
+    "runArgs": ["--name", "dev_pfa", "--network=dev-network"],
     "postAttachCommand": {
 
-    },
-
-    "initializeCommand": "docker-compose up -d"
+    }
+    ,"initializeCommand": "docker-compose -f docker-compose.dev.yml up -d"
 
 
 

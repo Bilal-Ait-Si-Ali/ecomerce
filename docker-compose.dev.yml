@@ -1,39 +1,38 @@
 version: '3.8'
-name: ${DOCKER_NAME}
+name: ${DOCKER_DEV}
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8000:80
-    depends_on:
-      - db
-
   db:
     image: mysql:8.0
-    container_name: ${DOCKER_NAME}_mysql
+    container_name: ${DOCKER_DEV}_mysql
+    #ports:
+    #  - "3306:3306"
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: laravel
       MYSQL_PASSWORD: laravel
-    #ports:
-    #  - 3306:3306
     volumes:
       - dbdata:/var/lib/mysql
+    networks:
+      - dev-network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: ${DOCKER_NAME}_phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: ${DOCKER_DEV}_phpmyadmin
+    ports:
+      - "8080:80"
     environment:
-      PMA_HOST: db
+      PMA_HOST: db        # Link to the db service
       PMA_USER: root
       PMA_PASSWORD: root
-    ports:
-      - 8080:80
     depends_on:
       - db
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    name: dev-network
 
 volumes:
   dbdata:

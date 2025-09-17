@@ -16,28 +16,24 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql zip gd
 RUN docker-php-ext-install calendar
 
+# Set working directory
 WORKDIR /var/www/html
 
+# Copy Laravel app code
+COPY . /var/www/html
+
+# Copy Apache virtual host config
+COPY apache/laravel.conf /etc/apache2/sites-available/000-default.conf
+
+# Set permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# Copy composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-#FROM ubuntu:latest
+# Install dependencies
+RUN composer install
 
-#ENV DEBIAN_FRONTEND=noninteractive
-
-#RUN apt update -y \
-#&& apt install -y apache2 && service apache2 start \
-#&& apt install -y php libapache2-mod-php php-mbstring php-cli php-bcmath php-json php-xml php-zip php-pdo php-common php-tokenizer php-mysql unzip php-curl curl gnupg \
-#&& curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-#&& apt install -y nodejs \
-#&& curl -sS https://getcomposer.org/installer | php \
-#&& mv composer.phar /usr/local/bin/composer \
-#&& service apache2 restart
-
-
-
-
-
-
+# Create Laravel storage symlink
+RUN php artisan storage:link 
