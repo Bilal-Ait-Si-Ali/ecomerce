@@ -16,9 +16,8 @@ public function checkout()
         return redirect()->route('cart.index')->with('error', 'Panier vide');
     }
     $total = $this->calculateTotal($cart);
-    return view('order.checkout', compact('cart', 'total'));
+    return view('checkout', compact('cart', 'total'));
 }
-
 
 
 
@@ -70,4 +69,5 @@ private function calculateTotal($cart)
     }
     return $total;
 
+}
 }

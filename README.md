@@ -11,6 +11,17 @@ docker-compose up -d
 
 ## About Laravel ecom
 
+a2enmod rewrite \
+&& cp -r . /var/www/html \
+&& cp apache/laravel.conf /etc/apache2/sites-available/000-default.conf \
+&& chown -R www-data:www-data /var/www/html \
+&& chmod -R 755 /var/www/html \
+&& cd /var/www/html
+
+composer install \
+&& php artisan storage:link \
+&&service apache2 restart
+
 e-commerce
 
 
@@ -19,3 +30,4 @@ php artisan migrate
 php artisan db:seed
 
 php artisan serve
+
