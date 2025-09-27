@@ -31,7 +31,6 @@
                          @foreach ($cart as $item)
 
 
-                    <p>{{ $item['name'] }} (x{{ $item['quantity'] }})</p>
                 
 
                             <tr>
@@ -57,7 +56,7 @@
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <span class="fw-bold text-primary" id="total-1">{{ $item['price'] }} MAD</span>
+                                    <span class="fw-bold text-primary" id="total-1">{{ $item['price'] * $item['quantity'] }} MAD</span>
                                 </td>
                                 <td class="align-middle">
                                     <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(1)">
@@ -87,18 +86,6 @@
             </button>
         </div>
 
-        <!-- Codes promo -->
-        <div class="card mt-4">
-            <div class="card-header">
-                <h6 class="mb-0">Code promo</h6>
-            </div>
-            <div class="card-body">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Entrer votre code promo">
-                    <button class="btn btn-outline-secondary">Appliquer</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Résumé commande -->
@@ -110,21 +97,21 @@
             <div class="card-body">
 
                 <div class="d-flex justify-content-between mb-2">
-                    <span>Sous-total (4 articles):</span>
-                    <span id="subtotal">4299.96€</span>
+                    <span>Sous-total (3 articles):</span>
+                    <span id="subtotal">5000.00 MAD</span>
                 </div>
                 <div class="d-flex justify-content-between mb-2">
                     <span>Livraison:</span>
                     <span class="text-success">Gratuite</span>
                 </div>
                 <div class="d-flex justify-content-between mb-2">
-                    <span>TVA (20%):</span>
-                    <span id="tax">860.00€</span>
+                    <span>TVA (10%):</span>
+                    <span id="tax">500.00MAD</span>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between mb-3">
                     <span class="fw-bold">Total TTC:</span>
-                    <span class="fw-bold text-primary h5" id="total">4299.96€</span>
+                    <span class="fw-bold text-primary h5" id="total">5500.00 MAD</span>
                 </div>
                 
                 <div class="d-grid mb-3">
@@ -181,7 +168,7 @@ function updateQuantity(productId, change) {
     
     // Mettre à jour le total du produit
     const newTotal = (prices[productId] * newQty).toFixed(2);
-    document.getElementById(`total-${productId}`).textContent = newTotal + '€';
+    document.getElementById(`total-${productId}`).textContent = newTotal + 'mad';
     
     updateCartTotal();
 }
@@ -219,9 +206,9 @@ function updateCartTotal() {
         }
     });
     
-    document.getElementById('subtotal').textContent = total.toFixed(2) + '€';
-    document.getElementById('total').textContent = total.toFixed(2) + '€';
-    document.getElementById('tax').textContent = (total * 0.2).toFixed(2) + '€';
+    document.getElementById('subtotal').textContent = total.toFixed(2) + 'mad';
+    document.getElementById('total').textContent = total.toFixed(2) + 'mad';
+    document.getElementById('tax').textContent = (total * 0.2).toFixed(2) + 'mad';
 }
 </script>
 @endsection

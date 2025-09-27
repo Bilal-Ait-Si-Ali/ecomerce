@@ -25,7 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="/cart">
                             <i class="bi bi-cart3"></i> Panier
-                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -96,7 +96,11 @@ async function updateCartCount() {
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
-            updateCartCount(); // Initial count fetch
+    if (!window.location.href.includes("cart")) {
+    updateCartCount();
+}
+
+             // Initial count fetch
         });
 </script>
 

@@ -20,9 +20,9 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h4 class="fw-bold">25</h4>
+                        <h4 class="fw-bold">7</h4>
                         <p class="mb-1">Produits</p>
-                        <small class="opacity-75">+3 ce mois</small>
+                        <small class="opacity-75">+7 ce mois</small>
                     </div>
                     <div class="align-self-center">
                         <i class="bi bi-box-seam display-4"></i>
@@ -37,9 +37,9 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h4 class="fw-bold">142</h4>
+                        <h4 class="fw-bold">1</h4>
                         <p class="mb-1">Commandes</p>
-                        <small class="opacity-75">+18 aujourd'hui</small>
+                        <small class="opacity-75">+1 aujourd'hui</small>
                     </div>
                     <div class="align-self-center">
                         <i class="bi bi-cart-check display-4"></i>
@@ -54,9 +54,9 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h4 class="fw-bold">12,580€</h4>
+                        <h4 class="fw-bold">5509.99MAD</h4>
                         <p class="mb-1">Revenus</p>
-                        <small class="opacity-75">+5.2% vs hier</small>
+                        <small class="opacity-75">+0% vs hier</small>
                     </div>
                     <div class="align-self-center">
                         <i class="bi bi-currency-euro display-4"></i>
@@ -71,9 +71,9 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h4 class="fw-bold">89</h4>
-                        <p class="mb-1">Clients</p>
-                        <small class="opacity-75">+12 cette semaine</small>
+                        <h4 class="fw-bold">1</h4>
+                        <p class="mb-1">Commands</p>
+                        <small class="opacity-75">+1 cette semaine</small>
                     </div>
                     <div class="align-self-center">
                         <i class="bi bi-people display-4"></i>
@@ -201,14 +201,14 @@
                                <td><strong>#CMD-001</strong></td>
                                <td>
                                    <div>
-                                       <strong>Jean Dupont</strong><br>
-                                       <small class="text-muted">jean.dupont@email.com</small>
+                                       <strong>isga</strong><br>
+                                       <small class="text-muted">06.12.34.56.78</small>
                                    </div>
                                </td>
                                <td>MacBook Pro, iPhone 15</td>
-                               <td><strong>2999.98€</strong></td>
+                               <td><strong>5500.99MAD</strong></td>
                                <td><span class="badge bg-success">Confirmée</span></td>
-                               <td>13/07/2025<br><small>14:30</small></td>
+                               <td>25/09/2025<br><small>14:30</small></td>
                                <td>
                                    <div class="btn-group btn-group-sm">
                                        <button class="btn btn-outline-primary" data-bs-toggle="tooltip" title="Voir détail">
@@ -220,6 +220,7 @@
                                    </div>
                                </td>
                            </tr>
+                           <!--
                            <tr>
                                <td><strong>#CMD-002</strong></td>
                                <td>
@@ -289,6 +290,7 @@
                                    </div>
                                </td>
                            </tr>
+-->
                        </tbody>
                    </table>
                </div>

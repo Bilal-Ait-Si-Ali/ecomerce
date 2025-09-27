@@ -55,7 +55,7 @@
                             
                             <div class="col-md-6 mb-3">
                                 <label for="lastName" class="form-label">Nom *</label>
-                                <input type="text" class="form-control" id="lastName" value="Dupont" required>
+                                <input type="text" class="form-control" id="lastName" value="isga" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="phone" class="form-label">Téléphone</label>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="address" class="form-label">Adresse *</label>
-                                <input type="text" class="form-control" id="address" value="123 Rue de la Paix" required>
+                                <input type="text" class="form-control" id="address" value="RABAT" required>
                             </div>
                         </div>
                     </div>
@@ -175,10 +175,10 @@
                                     </div>
                                     <div>
                                         <small class="fw-bold">MacBook Pro</small><br>
-                                        <small class="text-muted">Qté: 1</small>
+                                        <small class="text-muted">Qté: 2</small>
                                     </div>
                                 </div>
-                                <small class="fw-bold">1999.99€</small>
+                                <small class="fw-bold">4000.00MAD</small>
                             </div>
                             <hr class="my-2">
 
@@ -190,44 +190,31 @@
                                     </div>
                                     <div>
                                         <small class="fw-bold">iPhone 15</small><br>
-                                        <small class="text-muted">Qté: 2</small>
-                                    </div>
-                                </div>
-                                <small class="fw-bold">1999.98€</small>
-                            </div>
-                            <hr class="my-2">
-
-                            <!-- Produit 3 -->
-                            <div class="d-flex justify-content-between mb-2">
-                                <div class="d-flex">
-                                    <div class="bg-light d-flex align-items-center justify-content-center me-2" style="width: 30px; height: 30px;">
-                                        <i class="bi bi-headphones text-muted small"></i>
-                                    </div>
-                                    <div>
-                                        <small class="fw-bold">AirPods Pro</small><br>
                                         <small class="text-muted">Qté: 1</small>
                                     </div>
                                 </div>
-                                <small class="fw-bold">299.99€</small>
+                                <small class="fw-bold">1000.00MAD</small>
                             </div>
+                            <hr class="my-2">
+
                             <hr>
                             
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Sous-total:</span>
-                                <span>4299.96€</span>
+                                <span>5000.00MAD</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Livraison:</span>
                                 <span class="text-success" id="shippingCost">Gratuite</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
-                                <span>TVA (20%):</span>
-                                <span>860.00€</span>
+                                <span>TVA (10%):</span>
+                                <span>500.00MAD</span>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="fw-bold">Total TTC:</span>
-                                <span class="fw-bold text-primary h5" id="finalTotal">4299.96€</span>
+                                <span class="fw-bold text-primary h5" id="finalTotal">5509.99MAD</span>
                             </div>
                             
                             <div class="d-grid mb-3">

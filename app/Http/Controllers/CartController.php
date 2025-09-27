@@ -19,7 +19,7 @@ public function index()
 {
     $cart = session()->get('cart', []);
     $total = $this->calculateTotal($cart);
-    return view('cart', compact('cart', 'total'));
+    return view('cart', compact('cart'));
 }
 
 

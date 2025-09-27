@@ -53,7 +53,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">Liste des produits (4 produits)</h5>
+                <h5 class="mb-0">Liste des produits (7 produits)</h5>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -82,7 +82,7 @@
                                     <small class="text-muted">ID: 1</small>
                                 </td>
                                 <td>
-                                    <span class="fw-bold">1999.99€</span>
+                                    <span class="fw-bold">2000.00MAD</span>
                                 </td>
                                 <td>
                                     <span class="badge bg-warning">5</span>
@@ -118,7 +118,7 @@
                                     <small class="text-muted">ID: 2</small>
                                 </td>
                                 <td>
-                                    <span class="fw-bold">999.99€</span>
+                                    <span class="fw-bold">1000.00MAD</span>
                                 </td>
                                 <td>
                                     <span class="badge bg-success">15</span>
@@ -154,7 +154,7 @@
                                     <small class="text-muted">ID: 3</small>
                                 </td>
                                 <td>
-                                    <span class="fw-bold">299.99€</span>
+                                    <span class="fw-bold">300.00MAD</span>
                                 </td>
                                 <td>
                                     <span class="badge bg-success">25</span>
@@ -190,7 +190,7 @@
                                     <small class="text-muted">ID: 4</small>
                                 </td>
                                 <td>
-                                    <span class="fw-bold">449.99€</span>
+                                    <span class="fw-bold">500.00MAD</span>
                                 </td>
                                 <td>
                                     <span class="badge bg-danger">0</span>

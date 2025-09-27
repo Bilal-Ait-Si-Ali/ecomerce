@@ -33,7 +33,8 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/confirmation/{id}', [OrderController::class, 'confirmation'])->name('order.confirmation');
 
 /** Admin */
-Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
+//middleware(['auth', 'is_admin'])->
+Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::resource('/products', ProductController::class)->except(['show']);
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');

@@ -224,7 +224,7 @@
             <div class="card-body">
                 <h6 class="card-title">{{ $prod->name }}</h6>
                 <p class="text-primary fw-bold">{{ $prod->price }} Mad</p>
-                <a href="/product/5" class="btn btn-sm btn-outline-primary">Voir détail</a>
+                <a href="/product/{{ $prod->id }}" class="btn btn-sm btn-outline-primary">Voir détail</a>
             </div>
         </div>
     </div>
